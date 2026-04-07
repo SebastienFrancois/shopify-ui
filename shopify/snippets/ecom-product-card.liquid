@@ -1,0 +1,26 @@
+{% comment %}
+  ecom-product-card.liquid
+  Renders an <ecom-product-card> web component.
+  Usage: {% render 'ecom-product-card', product: product %}
+{% endcomment %}
+
+<ecom-product-card
+  handle="{{ product.handle }}"
+  title="{{ product.title | escape }}"
+  price="{{ product.price }}"
+  compare-at-price="{{ product.compare_at_price }}"
+  image-url="{{ product.featured_image | image_url: width: 600 }}"
+  image-alt="{{ product.featured_image.alt | escape }}"
+  vendor="{{ product.vendor | escape }}"
+  variant-id="{{ product.selected_or_first_available_variant.id }}"
+  {% if product.available == false %}badge="Epuise"{% endif %}
+  {% if product.compare_at_price > product.price %}badge="Promo"{% endif %}
+>
+  <noscript>
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.price | money }}</p>
+    {% if product.compare_at_price > product.price %}
+      <p><s>{{ product.compare_at_price | money }}</s></p>
+    {% endif %}
+  </noscript>
+</ecom-product-card>

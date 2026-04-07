@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Boutique - Shopify Mock</title>
+  <script type="module" src="../src/index.ts"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; color: #1e293b; }
+
+    .header {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo { font-size: 1.5rem; font-weight: 700; }
+    .header__nav { display: flex; gap: 1.5rem; }
+    .header__nav a { text-decoration: none; color: #64748b; font-weight: 500; }
+
+    .hero { position: relative; max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+    .hero-slide {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .collection {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .collection h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .collection__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .promo {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+    }
+
+    .footer {
+      background: #1e293b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">Ma Boutique</div>
+    <nav class="header__nav">
+      <a href="#">Accueil</a>
+      <a href="#">Catalogue</a>
+      <a href="#">Bundles</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section class="hero">
+    <ecom-carousel autoplay interval="4000" navigation="both">
+      <div class="hero-slide" style="background: linear-gradient(135deg, #2563eb, #7c3aed);">Nouvelle Collection Ete</div>
+      <div class="hero-slide" style="background: linear-gradient(135deg, #059669, #0891b2);">Livraison Gratuite des 50EUR</div>
+      <div class="hero-slide" style="background: linear-gradient(135deg, #dc2626, #f59e0b);">Soldes -30% sur tout</div>
+    </ecom-carousel>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="collection">
+    <h2>Nos Meilleures Ventes</h2>
+    <div class="collection__grid">
+      <ecom-product-card title="T-shirt Premium" price="2999" image-url="https://picsum.photos/400/400?random=10" vendor="EcoWear"></ecom-product-card>
+      <ecom-product-card title="Hoodie Oversize" price="4999" compare-at-price="6999" badge="Promo" image-url="https://picsum.photos/400/400?random=11" vendor="UrbanStyle"></ecom-product-card>
+      <ecom-product-card title="Sneakers Classic" price="8999" image-url="https://picsum.photos/400/400?random=12" vendor="StepUp"></ecom-product-card>
+      <ecom-product-card title="Casquette Logo" price="1999" image-url="https://picsum.photos/400/400?random=13" vendor="CapFactory"></ecom-product-card>
+    </div>
+  </section>
+
+  <!-- Bundle Promo -->
+  <section class="collection">
+    <h2>Bundle du Moment</h2>
+    <ecom-product-bundle
+      title="Pack Streetwear"
+      items='[{"title":"Hoodie","price":4999,"variantId":1,"imageUrl":"https://picsum.photos/200/200?random=20"},{"title":"Jean","price":5999,"variantId":2,"imageUrl":"https://picsum.photos/200/200?random=21"},{"title":"Sneakers","price":8999,"variantId":3,"imageUrl":"https://picsum.photos/200/200?random=22"}]'
+      discount-value="20"
+    ></ecom-product-bundle>
+  </section>
+
+  <!-- Glassmorphism Promo -->
+  <section class="promo">
+    <ecom-glass-card blur="20" opacity="0.12">
+      <h2 style="color: white; margin-bottom: 12px; font-size: 1.75rem;">Code Promo Exclusif</h2>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Utilisez le code SHOPIFY20 pour -20% sur votre premiere commande</p>
+    </ecom-glass-card>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ma Boutique - Powered by Shopify UI Components</p>
+  </footer>
+
+  <!-- Floating Widgets -->
+  <ecom-whatsapp-chat phone="+33612345678" message="Bonjour !" tooltip="Besoin d'aide ?" position="bottom-right" pulse></ecom-whatsapp-chat>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% comment %}
+  ecom-ai-chat.liquid
+  Renders an <ecom-ai-chat> web component.
+  Usage: {% render 'ecom-ai-chat', endpoint: '/apps/ai-chat/api', title: 'Assistant' %}
+
+  IMPORTANT: Do not expose API keys client-side.
+  Use a server-side proxy (Shopify App Proxy) as the endpoint.
+{% endcomment %}
+
+<ecom-ai-chat
+  endpoint="{{ endpoint }}"
+  {% if title %}title="{{ title | escape }}"{% endif %}
+  {% if placeholder %}placeholder="{{ placeholder | escape }}"{% endif %}
+  {% if welcome_message %}welcome-message="{{ welcome_message | escape }}"{% endif %}
+  {% if position %}position="{{ position }}"{% endif %}
+  {% if model %}model="{{ model }}"{% endif %}
+  {% if storage %}storage{% endif %}
+></ecom-ai-chat>

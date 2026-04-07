@@ -1,0 +1,30 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+Thumbs.db
+
+# Build
+shopify/assets/*.js
+shopify/assets/*.css
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test
+coverage/
+
+# Storybook
+storybook-static/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*

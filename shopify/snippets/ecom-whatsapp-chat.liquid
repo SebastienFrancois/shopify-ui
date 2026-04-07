@@ -1,0 +1,15 @@
+{% comment %}
+  ecom-whatsapp-chat.liquid
+  Renders an <ecom-whatsapp-chat> web component.
+  Usage: {% render 'ecom-whatsapp-chat', phone: '+33612345678', message: 'Bonjour !' %}
+{% endcomment %}
+
+<ecom-whatsapp-chat
+  phone="{{ phone }}"
+  {% if message %}message="{{ message | escape }}"{% endif %}
+  {% if position %}position="{{ position }}"{% endif %}
+  {% if size %}size="{{ size }}"{% endif %}
+  {% if tooltip %}tooltip="{{ tooltip | escape }}"{% endif %}
+  {% if pulse %}pulse{% endif %}
+  {% if delay %}delay="{{ delay }}"{% endif %}
+></ecom-whatsapp-chat>

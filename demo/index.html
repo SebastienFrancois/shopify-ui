@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify UI - Demo</title>
+  <script type="module" src="../src/index.ts"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 2rem;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .subtitle { color: #64748b; margin-bottom: 2rem; }
+    section { margin-bottom: 3rem; }
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .glass-demo {
+      padding: 3rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+    }
+    .carousel-demo {
+      max-width: 800px;
+    }
+    .carousel-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shopify UI Components</h1>
+  <p class="subtitle">Composants Web modernes, legers et SEO-friendly pour boutiques Shopify</p>
+
+  <!-- Product Cards -->
+  <section>
+    <h2>Product Card</h2>
+    <div class="grid">
+      <ecom-product-card
+        title="T-shirt Premium Coton Bio"
+        price="2999"
+        image-url="https://picsum.photos/400/400?random=1"
+        vendor="EcoWear"
+        button-text="Ajouter au panier"
+      ></ecom-product-card>
+
+      <ecom-product-card
+        title="Sneakers Limited Edition"
+        price="7999"
+        compare-at-price="12999"
+        image-url="https://picsum.photos/400/400?random=2"
+        vendor="UrbanStep"
+        badge="Promo"
+      ></ecom-product-card>
+
+      <ecom-product-card
+        title="Sac en Cuir Artisanal"
+        price="14999"
+        image-url="https://picsum.photos/400/400?random=3"
+        vendor="Maroquinerie Paris"
+      ></ecom-product-card>
+    </div>
+  </section>
+
+  <!-- Product Bundle -->
+  <section>
+    <h2>Product Bundle</h2>
+    <ecom-product-bundle
+      title="Look Complet Ete"
+      items='[{"title":"T-shirt Blanc","price":2999,"variantId":1,"imageUrl":"https://picsum.photos/200/200?random=4"},{"title":"Jean Slim","price":5999,"variantId":2,"imageUrl":"https://picsum.photos/200/200?random=5"},{"title":"Baskets Sport","price":8999,"variantId":3,"imageUrl":"https://picsum.photos/200/200?random=6"}]'
+      discount-value="15"
+    ></ecom-product-bundle>
+  </section>
+
+  <!-- Carousel -->
+  <section>
+    <h2>Carousel</h2>
+    <div class="carousel-demo">
+      <ecom-carousel slides-per-view="1" navigation="both">
+        <div class="carousel-slide" style="background: #2563eb;">Slide 1</div>
+        <div class="carousel-slide" style="background: #7c3aed;">Slide 2</div>
+        <div class="carousel-slide" style="background: #059669;">Slide 3</div>
+        <div class="carousel-slide" style="background: #dc2626;">Slide 4</div>
+      </ecom-carousel>
+    </div>
+  </section>
+
+  <!-- Glass Card -->
+  <section>
+    <h2>Glass Card (Glassmorphism)</h2>
+    <div class="glass-demo">
+      <ecom-glass-card blur="16" opacity="0.15">
+        <h3 style="color: white; margin-bottom: 8px; font-size: 1.25rem;">Offre Speciale</h3>
+        <p style="color: rgba(255,255,255,0.85);">Profitez de -20% sur toute la collection avec le code GLASS20</p>
+      </ecom-glass-card>
+    </div>
+  </section>
+
+  <!-- WhatsApp Chat -->
+  <ecom-whatsapp-chat
+    phone="+33612345678"
+    message="Bonjour, je suis interesse par vos produits !"
+    tooltip="Besoin d'aide ?"
+    position="bottom-right"
+  ></ecom-whatsapp-chat>
+</body>
+</html>

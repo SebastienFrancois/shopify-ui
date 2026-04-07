@@ -1,0 +1,75 @@
+{
+  "name": "@shopify-ui/components",
+  "version": "0.1.0",
+  "description": "Modern, lightweight Web Components for Shopify stores — zero dependencies, SEO-friendly, easy to integrate.",
+  "type": "module",
+  "main": "dist/shopify-ui.umd.cjs",
+  "module": "dist/shopify-ui.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/shopify-ui.es.js",
+      "require": "./dist/shopify-ui.umd.cjs"
+    },
+    "./product-card": "./dist/components/product-card/product-card.js",
+    "./product-bundle": "./dist/components/product-bundle/product-bundle.js",
+    "./carousel": "./dist/components/carousel/carousel.js",
+    "./glass-card": "./dist/components/glass-card/glass-card.js",
+    "./ai-chat": "./dist/components/ai-chat/ai-chat.js",
+    "./whatsapp-chat": "./dist/components/whatsapp-chat/whatsapp-chat.js"
+  },
+  "files": [
+    "dist",
+    "shopify"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "build:shopify": "tsx scripts/build-shopify-assets.ts",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "generate": "tsx scripts/generate-component.ts"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.4.0",
+    "@storybook/addon-essentials": "^8.4.0",
+    "@storybook/addon-links": "^8.4.0",
+    "@storybook/web-components-vite": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "happy-dom": "^15.0.0",
+    "prettier": "^3.4.0",
+    "storybook": "^8.4.0",
+    "terser": "5.46.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^2.1.0"
+  },
+  "keywords": [
+    "shopify",
+    "web-components",
+    "ecommerce",
+    "ui-library",
+    "lightweight",
+    "seo"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SebastienFrancois/shopify-ui"
+  },
+  "author": "SebastienFrancois",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

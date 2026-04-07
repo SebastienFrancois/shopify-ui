@@ -1,0 +1,24 @@
+{% comment %}
+  ecom-carousel.liquid
+  Renders an <ecom-carousel> web component.
+  Usage: {% render 'ecom-carousel', images: product.images, autoplay: true %}
+{% endcomment %}
+
+<ecom-carousel
+  {% if autoplay %}autoplay{% endif %}
+  {% if interval %}interval="{{ interval }}"{% endif %}
+  {% if slides_per_view %}slides-per-view="{{ slides_per_view }}"{% endif %}
+  {% if navigation %}navigation="{{ navigation }}"{% endif %}
+>
+  {% for image in images %}
+    <div>
+      <img
+        src="{{ image | image_url: width: 800 }}"
+        alt="{{ image.alt | escape }}"
+        loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+        width="800"
+        height="{{ 800 | divided_by: image.aspect_ratio | round }}"
+      >
+    </div>
+  {% endfor %}
+</ecom-carousel>

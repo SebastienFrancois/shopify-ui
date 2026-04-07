@@ -1,0 +1,15 @@
+{% comment %}
+  ecom-glass-card.liquid
+  Renders an <ecom-glass-card> web component.
+  Usage: {% render 'ecom-glass-card', blur: 12, opacity: 0.15, content: section.settings.text %}
+{% endcomment %}
+
+<ecom-glass-card
+  {% if blur %}blur="{{ blur }}"{% endif %}
+  {% if opacity %}opacity="{{ opacity }}"{% endif %}
+  {% if border_opacity %}border-opacity="{{ border_opacity }}"{% endif %}
+  {% if tint %}tint="{{ tint }}"{% endif %}
+  {% if radius %}radius="{{ radius }}"{% endif %}
+>
+  {{ content }}
+</ecom-glass-card>

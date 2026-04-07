@@ -1,0 +1,26 @@
+{% comment %}
+  ecom-product-bundle.liquid
+  Renders an <ecom-product-bundle> web component.
+  Usage: {% render 'ecom-product-bundle', products: collection.products, title: 'Pack Complet', discount_value: 15 %}
+{% endcomment %}
+
+{% assign items_json = '' %}
+{% for product in products %}
+  {% if forloop.first == false %}{% assign items_json = items_json | append: ',' %}{% endif %}
+  {% capture item_json %}{"title":"{{ product.title | escape }}","price":{{ product.price }},"variantId":{{ product.selected_or_first_available_variant.id }},"imageUrl":"{{ product.featured_image | image_url: width: 300 }}"}{% endcapture %}
+  {% assign items_json = items_json | append: item_json %}
+{% endfor %}
+
+<ecom-product-bundle
+  title="{{ title | default: 'Bundle' | escape }}"
+  items='[{{ items_json }}]'
+  discount-type="{{ discount_type | default: 'percentage' }}"
+  discount-value="{{ discount_value | default: 10 }}"
+>
+  <noscript>
+    <h2>{{ title | default: 'Bundle' }}</h2>
+    {% for product in products %}
+      <p>{{ product.title }} - {{ product.price | money }}</p>
+    {% endfor %}
+  </noscript>
+</ecom-product-bundle>
