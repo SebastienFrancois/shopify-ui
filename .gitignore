@@ -19,6 +19,7 @@ coverage/
 
 # Storybook
 storybook-static/
+docs-dist/
 
 # Environment
 .env

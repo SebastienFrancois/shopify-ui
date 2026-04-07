@@ -35,7 +35,10 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate": "tsx scripts/generate-component.ts"
+    "generate": "tsx scripts/generate-component.ts",
+    "docs:dev": "vite --config vite.config.docs.ts",
+    "docs:build": "vite build --config vite.config.docs.ts",
+    "docs:preview": "vite preview --config vite.config.docs.ts"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.4.0",
